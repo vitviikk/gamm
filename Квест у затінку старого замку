@@ -1,0 +1,178 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Character {
+public:
+    string name;
+    int health;
+    int strength;
+    int speed;
+
+    // Конструктор класу
+    Character(string n, int h, int s, int sp) : name(n), health(h), strength(s), speed(sp) {}
+
+    // Метод для виведення інформації про персонажа
+    void displayInfo() {
+        cout << "Ім'я: " << name << endl;
+        cout << "Здоров'я: " << health << endl;
+        cout << "Сила: " << strength << endl;
+        cout << "Швидкість: " << speed << endl;
+    }
+};
+
+int main() {
+    string playerName;
+    int playerHealth, playerStrength, playerSpeed;
+
+    cout << "Ласкаво просимо до створення персонажа!" << endl;
+    cout << "Будь ласка, введіть ім'я вашого персонажа: ";
+    cin >> playerName;
+
+    cout << "Введіть рівень здоров'я персонажа: ";
+    cin >> playerHealth;
+
+    cout << "Введіть рівень сили персонажа: ";
+    cin >> playerStrength;
+
+    cout << "Введіть рівень швидкості персонажа: ";
+    cin >> playerSpeed;
+
+    // Створення об'єкта персонажа за допомогою конструктора
+    Character player(playerName, playerHealth, playerStrength, playerSpeed);
+
+    // Виведення інформації про створеного персонажа
+    cout << "Створений персонаж:" << endl;
+    player.displayInfo();
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+void displayCastle() {
+    cout << "----------------------------" << endl;
+    cout << "|           Замок          |" << endl;
+    cout << "|                         |" << endl;
+    cout << "|        /\\        /\\      |" << endl;
+    cout << "|       /  \\      /  \\     |" << endl;
+    cout << "|      |    |    |    |    |" << endl;
+    cout << "|      |    |    |    |    |" << endl;
+    cout << "|      |    |    |    |    |" << endl;
+    cout << "|      |____|    |____|    |" << endl;
+    cout << "|                         |" << endl;
+    cout << "----------------------------" << endl;
+}
+
+int main() {
+    displayCastle();
+
+    return 0;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void processCommand(string command) {
+    // Приклад обробки введених команд
+    if (command == "піти на північ") {
+        cout << "Ви пішли на північ." << endl;
+    } else if (command == "взяти ключ") {
+        cout << "Ви взяли ключ." << endl;
+    } else if (command == "поговорити з чарівником") {
+        cout << "Чарівник розповів вам про таємницю замку." << endl;
+    } else {
+        cout << "Невідома команда. Спробуйте ще раз." << endl;
+    }
+}
+
+int main() {
+    string input;
+    
+    cout << "Ласкаво просимо до гри \"Квест у затінку старого замку\"!" << endl;
+
+    while (true) {
+        cout << "Введіть команду: ";
+        getline(cin, input);  // Отримання введеної гравцем команди
+
+        processCommand(input);  // Обробка введеної команди
+    }
+
+    return 0;
+}
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void puzzleOrBattle(string situation) {
+    if (situation == "головоломка") {
+        // Логіка для головоломки
+        cout << "Вам потрібно розв'язати головоломку, щоб продовжити!" << endl;
+        // Тут можна додати логіку для розв'язання головоломки
+    } else if (situation == "битва") {
+        // Логіка для битви
+        cout << "Ви зустріли монстра! Підготуйтесь до битви!" << endl;
+        // Тут можна реалізувати систему бою
+    } else {
+        cout << "Невідома ситуація." << endl;
+    }
+}
+
+int main() {
+    string situationInput;
+    
+    cout << "Ласкаво просимо до гри \"Квест у затінку старого замку\"!" << endl;
+
+    while (true) {
+        cout << "Ви стикаєтеся з головоломкою або битвою? (головоломка/битва/вихід): ";
+        cin >> situationInput;
+
+        if (situationInput == "вихід") {
+            cout << "Гра завершена." << endl;
+            break;
+        }
+
+        puzzleOrBattle(situationInput);  // Обробка вибраної ситуації
+    }
+
+    return 0;
+}
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void processCommand(string command, bool& gameFinished, int& playerHealth) {
+    if (command == "атакувати") {
+        cout << "Ви атакуєте монстра!" << endl;
+        // Тут можна реалізувати логіку бою та змінити стан гравця за відповідністю
+    } else if (command == "використати зелье") {
+        cout << "Ви використали зелье відновлення здоров'я." << endl;
+        playerHealth += 10;  // Припустимо, що гравець відновлює 10 одиниць здоров'я
+    } else if (command == "вийти") {
+        cout << "Гра завершена." << endl;
+        gameFinished = true;
+    } else {
+        cout << "Невідома команда." << endl;
+    }
+}
+
+int main() {
+    bool isGameFinished = false;
+    int playerHealth = 100;  // Припустимо, що це рівень здоров'я гравця
+
+    while (!isGameFinished) {
+        string input;
+        cout << "Ваша команда: ";
+        cin >> input;
+
+        processCommand(input, isGameFinished, playerHealth);  // Обробка введеної команди
+    }
+
+    return 0;
+}
